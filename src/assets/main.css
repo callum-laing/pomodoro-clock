@@ -18,6 +18,7 @@
 html {
   color-scheme: dark light;
   hanging-punctuation: first last;
+  font-family: "Kanchenjunga", sans-serif;
 }
 
 /* min body height */
