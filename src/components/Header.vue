@@ -11,13 +11,13 @@
 <style lang="scss" scoped>
 nav {
 	height: 3em;
-	border-bottom: 1px solid rgba(100, 100, 100, 0.5);
-	background-color: rgba(100, 100, 100, 0.2);
+	border-bottom: 1px solid rgba(49, 71, 196, 0.5);
+	background-color: rgb(49, 71, 196);
 	margin-bottom: 50px;
-}
 
-nav h1 {
-	font-size: 1.2em;
-	padding: 10px;
+	h1 {
+		font-size: 1.2em;
+		padding: 10px;
+	}
 }
 </style>

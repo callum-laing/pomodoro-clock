@@ -57,8 +57,10 @@ function resetTimer() {
 	<div class="timerBox">
 		<p class="mode">{{ modeLabel }}</p>
 		<p class="timer">{{ timer }}</p>
-		<button @click="toggleTimer">{{ isRunning ? 'Pause' : 'Start' }}</button>
-		<button v-if="isRunning" @click="resetTimer">Reset</button>
+		<div class="btnContainer">
+			<button @click="toggleTimer">{{ isRunning ? 'Pause' : 'Start' }}</button>
+			<button v-if="isRunning" @click="resetTimer">Reset</button>
+		</div>
 	</div>
 </template>
 
@@ -69,9 +71,26 @@ function resetTimer() {
 	justify-content: center;
 	flex-direction: column;
 	font-size: 2em;
+
+	.timer {
+		font-size: 4em;
+	}
 }
 
-.timerBox .timer {
-	font-size: 4em;
+.btnContainer {
+	button {
+		border-radius: 5px;
+		padding: 2px 10px;
+		margin: 10px;
+		transition: 0.3s ease;
+		background-color: white;
+		color: rgb(61, 83, 204);
+		font-weight: bold;
+	}
+	button:hover {
+		cursor: pointer;
+		background-color: transparent;
+		color: white;
+	}
 }
 </style>
