@@ -27,7 +27,7 @@ function toggleMode() {
 <template>
 	<header>
 		<nav>
-			<h1>Pomodoro Clock</h1>
+			<h1>Pomodoro Timer</h1>
 			<button @click="toggleMode">{{ isLightMode ? ' 🌙 ' : '☀️' }}</button>
 		</nav>
 	</header>
