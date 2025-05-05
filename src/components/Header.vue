@@ -11,8 +11,8 @@
 <style lang="scss" scoped>
 nav {
 	height: 3em;
-	border-bottom: 1px solid rgba(49, 71, 196, 0.5);
-	background-color: rgb(49, 71, 196);
+	border-bottom: 1px solid rgba(60, 60, 60);
+	background-color: rgba(40, 40, 40, 0.5);
 	margin-bottom: 50px;
 
 	h1 {

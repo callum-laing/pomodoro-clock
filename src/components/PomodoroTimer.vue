@@ -83,8 +83,7 @@ function resetTimer() {
 		padding: 2px 10px;
 		margin: 10px;
 		transition: 0.3s ease;
-		background-color: white;
-		color: rgb(61, 83, 204);
+		background-color: rgba(20, 20, 20);
 		font-weight: bold;
 	}
 	button:hover {

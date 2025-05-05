@@ -24,7 +24,7 @@ html {
 /* min body height */
 body {
   min-height: 100svh;
-  background-color: rgb(61, 83, 204);
+  background-color: rgba(20, 20, 20);
 }
 
 /* responsive images/videos */
