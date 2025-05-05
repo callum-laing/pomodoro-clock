@@ -70,3 +70,17 @@ html.light-mode button {
   border: 2px solid black;
   color: #111;
 }
+
+html.light-mode .active {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  /* softer glow */
+  background-color: currentColor;
+  color: white;
+}
+
+html.light-mode .btnAction {
+  background-color: rgba(0, 0, 0, 0.03);
+  border-color: currentColor;
+  color: currentColor;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+}
