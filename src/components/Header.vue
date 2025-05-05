@@ -28,7 +28,7 @@ function toggleMode() {
 	<header>
 		<nav>
 			<h1>Pomodoro Clock</h1>
-			<button @click="toggleMode">{{ isLightMode ? 'Dark' : 'Light' }}</button>
+			<button @click="toggleMode">{{ isLightMode ? ' 🌙 ' : '☀️' }}</button>
 		</nav>
 	</header>
 </template>
@@ -48,10 +48,13 @@ nav {
 	}
 
 	button {
-		background-color: transparent;
-		margin: 5px;
-		padding: 5px 5px;
-		border-radius: 10px;
+		padding: 0 10px;
+		border: none;
+		background: transparent;
+		font-size: 1.4em;
+	}
+	button:hover {
+		cursor: pointer;
 	}
 }
 </style>
