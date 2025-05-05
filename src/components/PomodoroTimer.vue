@@ -6,6 +6,7 @@ const intervalId = ref(null);
 const mode = ref('work');
 const isRunning = ref(false);
 
+// timer durations
 const durations = {
 	work: 1500,
 	short: 300,
@@ -70,11 +71,11 @@ function resetTimer() {
 const currentColor = computed(() => {
 	switch (mode.value) {
 		case 'work':
-			return '#e63946'; // red
+			return '#e63946';
 		case 'short':
-			return '#2a9d8f'; // green
+			return '#2a9d8f';
 		case 'long':
-			return '#457b9d'; // blue
+			return '#457b9d';
 		default:
 			return '#ccc';
 	}
@@ -132,9 +133,9 @@ const glowButtonStyle = computed(() => ({
 }
 
 .active {
-	box-shadow: 0 0 10px currentColor;
-	background-color: currentColor;
-	color: white;
+	border-color: currentColor;
+	color: currentColor;
+	box-shadow: 0 0 6px currentColor;
 }
 
 .btnContainer {
