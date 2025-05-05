@@ -6,7 +6,6 @@ const intervalId = ref(null);
 const mode = ref('work');
 const isRunning = ref(false);
 
-// timer durations
 const durations = {
 	work: 1500,
 	short: 300,
@@ -91,7 +90,6 @@ const glowButtonStyle = computed(() => ({
 <template>
 	<div class="timerBox">
 		<div class="mode-buttons btnContainer">
-			<!-- Duration Toggles -->
 			<button class="btnWork" :class="{ active: mode === 'work' }" @click="setMode('work')">
 				Pomodoro
 			</button>
@@ -103,10 +101,8 @@ const glowButtonStyle = computed(() => ({
 			</button>
 		</div>
 
-		<!-- Timer Display -->
 		<p class="timer">{{ timer }}</p>
 
-		<!-- Start / Reset Buttons -->
 		<div class="btnContainer">
 			<button class="btnAction" @click="toggleTimer" :style="glowButtonStyle">
 				{{ isRunning ? 'Pause' : 'Start' }}
