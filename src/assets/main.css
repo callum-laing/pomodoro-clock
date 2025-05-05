@@ -25,6 +25,7 @@ html {
 body {
   min-height: 100svh;
   background-color: rgba(20, 20, 20);
+  color: white;
 }
 
 /* responsive images/videos */
@@ -52,4 +53,20 @@ p,
 li {
   max-width: var(--p-max-width, 65ch);
   text-wrap: pretty;
+}
+
+html.light-mode body {
+  background-color: rgba(240, 240, 240);
+  color: black;
+}
+
+html.light-mode header nav {
+  background-color: rgba(220, 220, 220);
+  border-bottom: 2px solid rgba(190, 190, 190);
+}
+
+html.light-mode button {
+  background-color: transparent;
+  border: 2px solid black;
+  color: #111;
 }

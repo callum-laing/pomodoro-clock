@@ -82,14 +82,11 @@ function resetTimer() {
 		border-radius: 5px;
 		padding: 2px 10px;
 		margin: 10px;
-		transition: 0.3s ease;
-		background-color: rgba(20, 20, 20);
+		background-color: transparent;
 		font-weight: bold;
 	}
 	button:hover {
 		cursor: pointer;
-		background-color: transparent;
-		color: white;
 	}
 }
 </style>
