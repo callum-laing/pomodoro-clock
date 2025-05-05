@@ -6,6 +6,19 @@ const intervalId = ref(null);
 const mode = ref('work');
 const isRunning = ref(false);
 
+const durations = {
+	work: 1500,
+	short: 300,
+	long: 900
+};
+
+function setMode(newMode) {
+	stopTimer();
+	mode.value = newMode;
+	timeLeft.value = durations[newMode];
+	isRunning.value = false;
+}
+
 const timer = computed(() => {
 	const minutes = Math.floor(timeLeft.value / 60);
 	const seconds = timeLeft.value % 60;
@@ -13,7 +26,9 @@ const timer = computed(() => {
 });
 
 const modeLabel = computed(() => {
-	return mode.value === 'work' ? 'Time to focus!' : 'Time for a break!';
+	if (mode.value === 'work') return 'Time to focus!';
+	if (mode.value === 'short') return 'Quick break time!';
+	return 'Take a long break!';
 });
 
 function startTimer() {
@@ -51,16 +66,55 @@ function resetTimer() {
 	timeLeft.value = 1500;
 	mode.value = 'work';
 }
+
+const currentColor = computed(() => {
+	switch (mode.value) {
+		case 'work':
+			return '#e63946'; // red
+		case 'short':
+			return '#2a9d8f'; // green
+		case 'long':
+			return '#457b9d'; // blue
+		default:
+			return '#ccc';
+	}
+});
+
+const glowButtonStyle = computed(() => ({
+	borderColor: currentColor.value,
+	color: currentColor.value,
+	boxShadow: `0 0 10px ${currentColor.value}`
+}));
 </script>
 
 <template>
 	<div class="timerBox">
-		<p class="mode">{{ modeLabel }}</p>
-		<p class="timer">{{ timer }}</p>
-		<div class="btnContainer">
-			<button @click="toggleTimer">{{ isRunning ? 'Pause' : 'Start' }}</button>
-			<button v-if="isRunning" @click="resetTimer">Reset</button>
+		<div class="mode-buttons btnContainer">
+			<!-- Duration Toggles -->
+			<button class="btnWork" :class="{ active: mode === 'work' }" @click="setMode('work')">
+				Pomodoro
+			</button>
+			<button class="btnShort" :class="{ active: mode === 'short' }" @click="setMode('short')">
+				Short Break
+			</button>
+			<button class="btnLong" :class="{ active: mode === 'long' }" @click="setMode('long')">
+				Long Break
+			</button>
 		</div>
+
+		<!-- Timer Display -->
+		<p class="timer">{{ timer }}</p>
+
+		<!-- Start / Reset Buttons -->
+		<div class="btnContainer">
+			<button class="btnAction" @click="toggleTimer" :style="glowButtonStyle">
+				{{ isRunning ? 'Pause' : 'Start' }}
+			</button>
+			<button class="btnAction" v-if="isRunning" @click="resetTimer" :style="glowButtonStyle">
+				Reset
+			</button>
+		</div>
+		<p class="mode">{{ modeLabel }}</p>
 	</div>
 </template>
 
@@ -77,6 +131,12 @@ function resetTimer() {
 	}
 }
 
+.active {
+	box-shadow: 0 0 10px currentColor;
+	background-color: currentColor;
+	color: white;
+}
+
 .btnContainer {
 	button {
 		border-radius: 5px;
@@ -88,5 +148,17 @@ function resetTimer() {
 	button:hover {
 		cursor: pointer;
 	}
+}
+
+.btnWork {
+	border: 2px solid #e63946;
+}
+
+.btnShort {
+	border: 2px solid #2a9d8f;
+}
+
+.btnLong {
+	border: 2px solid #457b9d;
 }
 </style>
