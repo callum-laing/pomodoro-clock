@@ -37,6 +37,7 @@ video {
   max-width: 100%;
 }
 
+/* Improved heading in supported browsers */
 h1,
 h2,
 h3,
